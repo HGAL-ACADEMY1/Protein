@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGAL Academy: Protein Lecture</title>
+    
+    <!-- Google Fonts: Merriweather for the main text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Custom Theme Configuration */
+        :root {
+            --bg-dark: #121212;
+            --bg-soft: #1E1E1E;
+            --text-primary: #E0E0E0;
+            --text-accent: #A5D6A7; /* Soft Green for emphasis */
+            --brand-color: #4CAF50;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
+            color: var(--text-primary);
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Scroll Progress Bar */
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        #progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #81C784);
+            width: 0%;
+            transition: width 0.1s ease-out;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        /* Typography sizing overrides */
+        .lecture-text {
+            font-size: 26px; /* Explicit request */
+        }
+        
+        @media (max-width: 768px) {
+            .lecture-text {
+                font-size: 20px; /* Slightly smaller for mobile readability, though still large */
+            }
+        }
+
+        /* Scroll Animation Classes */
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Button Animation */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); transform: scale(1); }
+            70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); transform: scale(1.05); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); transform: scale(1); }
+        }
+
+        .vip-btn {
+            animation: pulse-green 2s infinite;
+        }
+
+        /* Emphasized terms */
+        .highlight {
+            color: var(--text-accent);
+            font-weight: 700;
+        }
+
+        /* Hide scrollbar for cleaner look but allow scrolling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #121212; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen pb-20">
+
+    <!-- Scroll Progress Bar -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="max-w-3xl mx-auto px-6 pt-12">
+        
+        <!-- Header / Logo -->
+        <div class="flex justify-center mb-12 reveal-text">
+            <img src="https://i.imgur.com/eP0BFrd.png" alt="HGAL Academy Logo" class="w-full max-w-[350px] object-contain drop-shadow-2xl">
+        </div>
+
+        <!-- Lecture Content -->
+        <div class="lecture-text space-y-10 text-gray-200">
+
+            <!-- Intro -->
+            <p class="reveal-text">
+                Hello, young scholar! 👋 Welcome to today's class. I am so excited to explore the world of nutrition with you. Today, we are going to talk about a super important nutrient. It’s called <span class="highlight">PROTEIN</span>. 🥩🥚
+            </p>
+
+            <p class="reveal-text">
+                Do you know what the word "Protein" actually means? It comes from a Greek word that simply means <span class="highlight">"to come first."</span> 🥇
+            </p>
+
+            <p class="reveal-text">
+                Think about that for a second... "To come first." That tells you just how important it is! It is the most indispensable (that means you absolutely cannot do without it) nutrient. It provides your body with special building blocks called <span class="highlight">amino acids</span>. 🧱
+            </p>
+
+            <p class="reveal-text">
+                Just like you need Lego blocks to build a castle, your body needs these amino acids for <strong>body building</strong> and <strong>repairing tissues</strong>. If you scrape your knee, protein helps fix it! 🩹
+            </p>
+
+            <p class="reveal-text">
+                Okay, let's now move on to how we group these proteins. 👇
+            </p>
+
+            <!-- Classification -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Classification of Protein</h2>
+
+            <p class="reveal-text">
+                We can group proteins under two big headings: <span class="highlight">Animal Protein</span> and <span class="highlight">Plant Protein</span>. 🌿🐄
+            </p>
+
+            <p class="reveal-text">
+                Animal protein sources are often called <span class="highlight">Complete Proteins</span>. Why? Because they are like a complete set of Lego blocks—they contain <strong>all</strong> the essential amino acids your body needs.
+            </p>
+
+            <p class="reveal-text">
+                For adults, there are eight of these essential blocks: Isoleucine, Leucine, Lysine, Methionine, Phenylalanine, Threonine, Tryptophan, and Valine. 🤓
+            </p>
+
+            <p class="reveal-text">
+                But guess what? For infants (babies), there is a <strong>9th</strong> essential amino acid called <span class="highlight">Histidine</span>. They need this one extra block to grow properly! 👶
+            </p>
+
+            <p class="reveal-text">
+                Now, scientists also classify proteins based on how they dissolve (solubility) and their physical shape. Let's look at the three main classes:
+            </p>
+
+            <div class="space-y-6 reveal-text">
+                <p>
+                    1️⃣ <span class="highlight">Simple Proteins:</span> These are the pure ones. When we break them down with water (a process called hydrolysis), they only give us amino acids. Examples include the <strong>Albumen</strong> in egg whites 🥚, <strong>Keratin</strong> in your hair 💇, and <strong>Globin</strong> in your blood.
+                </p>
+                <p>
+                    2️⃣ <span class="highlight">Conjugated Proteins:</span> Think of these as "Protein Plus." They are protein combined with a non-protein friend. For example, <strong>Hemoglobin</strong> in your blood is Protein + Heme (iron). <strong>Casein</strong> in milk is Protein + Phosphoric acid. 🥛
+                </p>
+                <p>
+                    3️⃣ <span class="highlight">Derived Proteins:</span> These are what we get when proteins are partially broken down by heat or digestion. Imagine smashing a big Lego wall into smaller chunks. These chunks are things like peptones and peptides. 🔥
+                </p>
+            </div>
+
+            <p class="reveal-text">
+                Now that we understand what they are, let’s talk about what they actually DO for you.
+            </p>
+
+            <!-- Functions -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Functions of Protein</h2>
+
+            <p class="reveal-text">
+                Why do you need to eat that chicken or bean soup? Here are the chief functions:
+            </p>
+
+            <ul class="list-none space-y-4 reveal-text">
+                <li>💪 It provides amino acids to <strong>build new tissues</strong>. This is super important for babies to grow tall and strong.</li>
+                <li>🛠️ It helps <strong>maintain body tissue</strong> and replace damaged or worn-out tissues in both adults and children.</li>
+                <li>🛡️ It helps form <strong>hormones, enzymes, and antibodies</strong> (the soldiers that fight sickness).</li>
+                <li>🔋 It can even serve as a <strong>source of energy</strong> if your body runs out of carbohydrates!</li>
+            </ul>
+
+            <p class="reveal-text">
+                Let’s now dive into the journey food takes inside your body! 🎢
+            </p>
+
+            <!-- Digestion -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Digestion of Protein</h2>
+
+            <p class="reveal-text">
+                Protein digestion starts in your <strong>stomach</strong>. Imagine long chains of protein arriving there. There is a sleeping enzyme called <span class="highlight">Pepsinogen</span>. 😴
+            </p>
+
+            <p class="reveal-text">
+                When this sleeping enzyme touches the Hydrochloric acid in your stomach, it wakes up and turns into <span class="highlight">Pepsin</span>! Pepsin starts cutting the long protein chains into smaller units. It even digests collagen, the tough stuff in meat! 🥩
+            </p>
+
+            <p class="reveal-text">
+                But the real work happens next. The food becomes a liquid mush called <strong>chyme</strong> and moves into the small intestine (specifically the duodenum).
+            </p>
+
+            <p class="reveal-text">
+                Here, another enzyme called <strong>Enterokinase</strong> activates a helper called Trypsinogen into <span class="highlight">Trypsin</span>. Together with friends like Chymotrypsin, they act like scissors ✂️. They breakdown the polypeptide chains into tiny pieces until they become free amino acids that your body can absorb!
+            </p>
+
+            <p class="reveal-text">
+                Next, we’ll look at how much protein you actually need. ⚖️
+            </p>
+
+            <!-- Recommended Allowance -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Recommended Allowance</h2>
+
+            <p class="reveal-text">
+                For adult men and women (18 to 35 years old), the rule is simple: <strong>One gram of protein for every kilogram of body weight.</strong>
+            </p>
+
+            <p class="reveal-text">
+                But for babies? They are growing fast! 🚀 So, their protein allowance needs to increase as they grow up. Adults, on the other hand, should decrease their allowance as they get older.
+            </p>
+
+            <p class="reveal-text">
+                For babies in the first 4-6 months, we calculate their needs based on breast milk. Even though some nitrogen in breast milk isn't protein (like urea), babies use it so well that we count it all!
+            </p>
+
+            <p class="reveal-text">
+                <strong>Important Note:</strong> 🤰 Pregnant women, nursing mothers, teenagers, and people recovering from surgery or stress need <strong>EXTRA</strong> protein.
+            </p>
+
+            <p class="reveal-text">
+                At this point, it’s important to consider what happens if you don't get enough. 😟
+            </p>
+
+            <!-- Deficiency -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Protein Deficiency Diseases</h2>
+
+            <p class="reveal-text">
+                If someone doesn't eat enough protein, they can get a disease called <span class="highlight">Protein Energy Malnutrition (PEM)</span>. We used to call it Protein Caloric Malnutrition.
+            </p>
+
+            <p class="reveal-text">
+                This can show up in different patterns:
+                <br>🔸 <strong>Kwashiorkor</strong> (often seen in children with swollen bellies)
+                <br>🔸 <strong>Marasmus</strong> (extreme thinness)
+                <br>🔸 <strong>Marasmic-Kwashiorkor</strong> (a mix of both)
+            </p>
+
+            <p class="reveal-text">
+                Another issue is nutritional liver disease. This is often seen in people who drink too much alcohol or children with Kwashiorkor. It causes an enlarged fatty liver and oedema (swelling). 🏥
+            </p>
+
+            <p class="reveal-text">
+                Now that we understand the risks, let's talk about how to mix your food correctly! 🍲
+            </p>
+
+            <!-- Supplementary & Complementary -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Supplementary & Complementary Protein</h2>
+
+            <p class="reveal-text">
+                Remember how we said animal proteins (meat, eggs) are <span class="highlight">First Class</span>? That's because they have all the essential amino acids. Plant proteins are usually <span class="highlight">Second Class</span> because they are often missing one or two blocks.
+            </p>
+
+            <p class="reveal-text">
+                <strong>Supplementary Protein:</strong> This is when you add an animal protein to a plant protein.
+                <br><em>Example:</em> Maize + Meat 🌽🥩 or Groundnut + Crayfish 🥜🦐.
+                <br>The animal protein supplies the missing blocks!
+            </p>
+
+            <p class="reveal-text">
+                <strong>Complementary Protein:</strong> This is magic! ✨ This is when you combine two plant proteins to make a complete meal.
+                <br><em>Example:</em> Beans and Rice 🍛.
+            </p>
+
+            <p class="reveal-text">
+                Here is the science: Grains (like rice/maize) are low in Lysine. Legumes (like beans/groundnut) are low in Methionine. When you eat them together, they cover for each other! It's teamwork! 🤝
+            </p>
+
+            <!-- Sources -->
+            <h2 class="text-3xl font-bold text-green-400 mt-12 mb-6 reveal-text">Food Sources of Protein</h2>
+
+            <p class="reveal-text">
+                So, where can you find protein? Here is your shopping list! 🛒
+            </p>
+
+            <p class="reveal-text">
+                🐄 <strong>Animal Sources:</strong> Fish, crayfish, eggs, milk, goat meat, pork, chicken, turkey, crab, and breast milk.
+            </p>
+
+            <p class="reveal-text">
+                🌱 <strong>Plant Sources:</strong> Cowpea seeds, soybeans, groundnuts, locust beans, pinto beans, red kidney beans, and lima beans.
+            </p>
+
+            <p class="reveal-text">
+                🌾 <strong>Fair Sources (Grains):</strong> Rice, wheat, maize, guinea corn, acha, and millet.
+            </p>
+            
+            <div class="h-8"></div> <!-- Spacer -->
+
+            <!-- Continuous VIP Section -->
+            <p class="reveal-text text-green-300 font-bold border-t border-gray-800 pt-10">
+                Join our VIP if you're yet to, for more study materials and other bonuses (worth #115,000).
+            </p>
+            
+            <p class="reveal-text">
+                For more details click below
+            </p>
+
+            <p class="reveal-text text-center text-4xl py-2">👇</p>
+
+            <div class="reveal-text flex justify-center pb-20 pt-4">
+                <a href="https://tinyurl.com/2dbtvx2b" target="_blank" class="vip-btn bg-green-600 hover:bg-green-500 text-white font-bold py-4 px-12 rounded-full text-xl no-underline inline-block transition-transform duration-300 transform">
+                    Click Here
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        });
+
+        // Text Reveal Animation Logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Stop observing once revealed so it doesn't animate again when scrolling up
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-text').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+                                                                                                                            </html>
